@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export const popUpForm = () => {
-  return (
-    <div>popUpForm</div>
-  )
+export default function popUpForm() {
+  return <div>popUpForm</div>;
 }

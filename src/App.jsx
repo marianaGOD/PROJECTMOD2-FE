@@ -1,27 +1,30 @@
-import { useState } from 'react'
-import './App.css'
+//import { useState } from "react";
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import MoviesDetails from "./pages/MoviesDetails";
+import MoviesList from "./pages/MoviesList";
+import NotFoundPage from "./pages/NotFoundPage";
+import TopBar from "./components/TopBar";
+import SearchResult from "./components/SearchResult";
+import PopUpForm from "./components/PopUpForm";
+import { Footer } from "./components/Footer";
 
 function App() {
-  const [count, setCount] = useState(0)
+  //const [count, setCount] = useState(0);
 
   return (
     <>
-    <header>
-      <h1>Movies Stuff</h1>
-    </header>
-    <main>
-      Movies Carrousel goes here
-    </main>
-      <footer>
-        <p>
-          Here is the link to the{" "}
-          <a href="https://github.com/marianaGOD" target="_blank">
-            GitHub Mariana's GitHub
-          </a>
-        </p>
-      </footer>
+      <TopBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies/:movieId" element={<MoviesDetails />} />
+        <Route path="/movies" element={<MoviesList />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+      <Footer />
     </>
   );
 }
 
-export default App
+export default App;
