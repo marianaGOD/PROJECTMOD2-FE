@@ -6,13 +6,9 @@ import MoviesDetails from "./pages/MoviesDetails";
 import MoviesList from "./pages/MoviesList";
 import NotFoundPage from "./pages/NotFoundPage";
 import TopBar from "./components/TopBar";
-import SearchResult from "./components/SearchResult";
-import PopUpForm from "./components/PopUpForm";
 import { Footer } from "./components/Footer";
 
 function App() {
-  //const [count, setCount] = useState(0);
-
   return (
     <>
       <TopBar />

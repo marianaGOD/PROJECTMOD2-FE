@@ -1,83 +1,42 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
-//import axios and api
+function MoviesList() {
+  const [movies, setMovies] = useState([]);
 
-export default function moviesList() {
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/movies`)
+      .then((response) => {
+        setMovies(response.data);
+      })
+      .catch((error) => {
+        console.log("These aren't the movies you're looking for", error);
+      });
+  }, []);
+
   return (
     <div>
-      <h2>Movie List</h2>
+      <div className="container">
+        <h1>Our best movies</h1>
+        <div>
+          {movies &&
+            movies.map((movie) => {
+              return (
+                <Link to={`${movie.id}`}>
+                  <div className="list-group-each">
+                    <h2>{movie.title}</h2>
+                    <img src={movie.imageUrl} />
+                    <p>{movie.description}</p>
+                  </div>
+                </Link>
+              );
+            })}
+        </div>
+      </div>
     </div>
   );
 }
 
-/*
-
-
-
-function AllBeersPage() {
-  // Mock initial state, to be replaced by data from the API. Once you retrieve the list of beers from the Beers API store it in this state variable.
-  
-  const [beers, setBeers] = useState(null);
-
-  // TASKS:
-  // 1. Set up an effect hook to make a request to the Beers API and get a list with all the beers.
-  // 2. Use axios to make a HTTP request.
-  // 3. Use the response data from the Beers API to update the state variable.
-
-  // The logic and the structure for the page showing the list of beers. You can leave this as it is for now.
-
-  const fetchBeers = async () => {
-    try {
-      const response = await axios("https://ih-beers-api2.herokuapp.com/beers");
-
-      setBeers(response.data);
-    } catch (err) {
-      console.log("there was error fetching the beers", err);
-    }
-  };
-
-  useEffect(() => {
-    fetchBeers();
-  }, []);
-  return (
-    <>
-      <Search />
-
-      <div className="d-inline-flex flex-wrap justify-content-center align-items-center w-100 p-4">
-        {beers &&
-          beers.map((beer, i) => {
-            return (
-              <div key={i}>
-                <Link to={"/beers/" + beer._id}>
-                  <div
-                    className="card m-2 p-2 text-center"
-                    style={{ width: "24rem", height: "18rem" }}
-                  >
-                    <div className="card-body">
-                      <img
-                        src={beer.image_url}
-                        style={{ height: "6rem" }}
-                        alt={"image of" + beer.name}
-                      />
-                      <h5 className="card-title text-truncate mt-2">
-                        {beer.name}
-                      </h5>
-                      <h6 className="card-subtitle mb-3 text-muted">
-                        <em>{beer.tagline}</em>
-                      </h6>
-                      <p className="card-text">
-                        Created by: {beer.contributed_by}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            );
-          })}
-      </div>
-    </>
-  );
-}
-
-export default AllBeersPage;  */
+export default MoviesList;
