@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PopUpForm from "./PopUpForm";
 
-export default function topBar() {
+export default function TopBar() {
   return (
     <div className="top-bar">
       <div>

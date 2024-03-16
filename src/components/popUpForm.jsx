@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function popUpForm() {
+export default function PopUpForm() {
   return <div>popUpForm</div>;
 }
