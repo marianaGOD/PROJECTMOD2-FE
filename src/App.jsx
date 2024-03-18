@@ -9,6 +9,7 @@ import TopBar from "./components/TopBar";
 import { Footer } from "./components/Footer";
 import AddNewMovie from "./components/AddNewMovie";
 import AddReview from "./components/AddReview";
+import PlayPage from "./pages/PlayPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/add-new-movie" element={<AddNewMovie />} />
         <Route path="/add-review/:movieId" element={<AddReview />} />
+        <Route path="/play-page" element={<PlayPage />} />
       </Routes>
       <Footer />
     </>

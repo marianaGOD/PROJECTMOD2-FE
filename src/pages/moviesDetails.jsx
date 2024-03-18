@@ -48,7 +48,8 @@ export const MoviesDetails = () => {
 {reviews.map((review)=> {
   return (
     <div>
-      <h3>{review.title}</h3>
+      <h3>{review.username}</h3>
+      <p>{review.title}</p>
       <p>{review.description}</p>
       <p>{review.rating}</p>
       <p>{review.createdDate}</p>

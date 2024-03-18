@@ -13,6 +13,7 @@ export default function TopBar() {
         <Link to="/"> Home</Link>
         <Link to="/movies"> Movies</Link>
         <Link to="/add-new-movie"> Add New Movie</Link>
+        <Link to="/play-page"> Play! </Link>
       </div>
     </div>
   );

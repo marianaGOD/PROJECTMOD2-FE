@@ -7,9 +7,9 @@ import axios from "axios";
 export default function AddReview({ movies, setMovies }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+   const [username, setUsername] = useState("");
   const [createdDate] = useState(new Date().toLocaleDateString());
   const { movieId } = useParams();
-
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   const [totalStars, setTotalStars] = useState(5);
@@ -18,6 +18,7 @@ export default function AddReview({ movies, setMovies }) {
   const handleCreateReview = (event) => {
     event.preventDefault();
     const review = {
+      username,
       title,
       description,
       rating,
@@ -55,6 +56,17 @@ export default function AddReview({ movies, setMovies }) {
           <div className="popup-form-container">
             <div className="inline-container"></div>
             <div className="inline-container">
+              <label>
+                <br />
+                User Name
+                <br />
+                <input
+                  placeholder="username"
+                  type="text"
+                  value={username}
+                  onChange={(event) => setUsername(event.target.value)}
+                />
+              </label>
               <label className="popup-title-input">
                 Title
                 <br />
