@@ -14,7 +14,7 @@ export default function Carrousel({ movies }) {
 
   useEffect(() => {
     const pictureNumber = Math.floor(Math.random() * movies.length);
-    setFeaturedMovies(movies.slice(pictureNumber, pictureNumber + 5));
+    setFeaturedMovies(movies.slice(pictureNumber, pictureNumber + 25));
   }, [movies]);
 
   return (
