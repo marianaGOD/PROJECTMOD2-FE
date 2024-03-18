@@ -73,3 +73,17 @@ body {
 .list-group-each img {
   height: 400px;
 }
+
+.detail-container {
+  display: flex;
+  text-align: left;
+  justify-content: space-around;
+}
+
+.detail-container div {
+  width: 800px;
+}
+
+.detail-container img {
+  height: 600px;
+}

@@ -21,12 +21,37 @@ export const MoviesDetails = () => {
   }
 
   return (
-    <div>
-      <h2>{movie.title}</h2>
+    <div className="detail-container">
       <img src={movie.imageUrl}></img>
-      <p>{movie.description}</p>
+      <div>
+        <h2>
+          {movie.title}
+          {movie.oscar ? " 🏆" : ""}
+        </h2>
+        <p>
+          {movie.director} - {movie.year}
+        </p>
+        <p>{movie.genre}</p>
+        <p>{movie.description}</p>
+        <p>{movie.mainCast}</p>
+      </div>
     </div>
   );
 };
 
 export default MoviesDetails;
+
+/*  {
+      "id": "4",
+      "title": "Pulp Fiction",
+      "description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in tales of violence and redemption.",
+      "year": "1994",
+      "director": "Quentin Tarantino",
+      "mainCast": "John Travolta, Uma Thurman, Samuel L. Jackson",
+      "oscar": true,
+      "genre": "Crime, Drama",
+      "writers": "Quentin Tarantino, Roger Avary",
+      "funFact": "The briefcase's contents are never revealed, sparking widespread speculation and theories among fans.",
+      "famousQuote": "Say 'what' again, I dare you, I double dare you motherfucker, say what one more Goddamn time!",
+      "imageUrl": "https://static.posters.cz/image/750/posters/pulp-fiction-cover-i1288.jpg"
+    },*/

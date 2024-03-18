@@ -24,7 +24,7 @@ function MoviesList() {
           {movies &&
             movies.map((movie) => {
               return (
-                <Link to={`${movie.id}`}>
+                <Link to={`${movie.id}`} key={movie.id}>
                   <div className="list-group-each">
                     <h2>{movie.title}</h2>
                     <img src={movie.imageUrl} />
