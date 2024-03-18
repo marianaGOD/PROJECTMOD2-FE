@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import HomePage from "../pages/HomePage";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-export default function AddNewMovie({movies, setMovies}) {
+export default function AddNewMovie({ movies, setMovies }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [year, setYear] = useState("");
@@ -33,7 +34,7 @@ export default function AddNewMovie({movies, setMovies}) {
   const handleCreateCard = (event) => {
     event.preventDefault();
 
-    const NewMovie = {
+    const newMovie = {
       title,
       description,
       year,
@@ -47,9 +48,19 @@ export default function AddNewMovie({movies, setMovies}) {
       imageUrl,
     };
 
-    setMovies([...movies, NewMovie]);
+    //setMovies([...movies, newMovie]);
 
-    nav("/");
+    axios
+      .post("http://localhost:3000/movies", newMovie)
+      .then(function (response) {
+        console.log(response);
+        nav("/");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    
   };
 
   return (
@@ -95,7 +106,6 @@ export default function AddNewMovie({movies, setMovies}) {
                 <br />
                 Year
                 <br />
-                
                 <select
                   name="year"
                   value={year}

@@ -20,7 +20,6 @@ function MoviesList() {
 
   return (
     <div>
-      <HomePage movies={movies} setMovies={setMovies} />
       <div className="container">
         <h1>Our best movies</h1>
         <SearchBar movies={movies} />
