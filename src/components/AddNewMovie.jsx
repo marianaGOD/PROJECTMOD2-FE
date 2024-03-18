@@ -59,8 +59,6 @@ export default function AddNewMovie({ movies, setMovies }) {
       .catch(function (error) {
         console.log(error);
       });
-
-    
   };
 
   return (
@@ -174,6 +172,7 @@ export default function AddNewMovie({ movies, setMovies }) {
                   <option value="Thriller">Thriller</option>
                   <option value="Action">Action</option>
                   <option value="Drama">Drama</option>
+                  <option value="Documentary">Documentary</option>
                   <option value="Fantasy">Fantasy</option>
                   <option value="Romance">Romance</option>
                   <option value="Science fiction">Science fiction</option>
