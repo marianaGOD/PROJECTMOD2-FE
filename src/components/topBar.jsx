@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PopUpForm from "./PopUpForm";
 
-export default function topBar() {
+export default function TopBar() {
   return (
     <div className="top-bar">
       <div>
@@ -13,7 +12,7 @@ export default function topBar() {
       <div className="bar-links">
         <Link to="/"> Home</Link>
         <Link to="/movies"> Movies</Link>
-        <PopUpForm />
+        <Link to="/add-new-movie"> Add New Movie</Link>
       </div>
     </div>
   );
