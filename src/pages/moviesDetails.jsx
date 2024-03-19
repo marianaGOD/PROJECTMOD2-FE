@@ -31,10 +31,25 @@ export const MoviesDetails = () => {
   return (
     <>
       <div>
-        <h2>{movie.title}</h2>
-        <img src={movie.imageUrl} alt={`Poster of ${movie.title}`}></img>
-        <p>{movie.description}</p>
-        <button onClick={() => navigate(`/add-review/${movie.id}`)}>
+        <div className="detail-container">
+          <img src={movie.imageUrl} alt={`Poster of ${movie.title}`}></img>
+          <div>
+            <h2>
+              {movie.title}
+              {movie.oscar ? " 🏆" : null}
+            </h2>
+            <p>
+              {movie.director} - {movie.year}
+            </p>
+            <p>{movie.genre}</p>
+            <p>{movie.description}</p>
+            <p>{movie.mainCast}</p>
+          </div>
+        </div>
+        <button
+          className="review-button"
+          onClick={() => navigate(`/add-review/${movie.id}`)}
+        >
           Add Review
         </button>
       </div>
