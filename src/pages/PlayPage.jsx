@@ -6,53 +6,19 @@ import OscarTrueOrFalse from "../components/OscarTrueOrFalse";
 
 export default function PlayPage() {
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100vw",
-        margin: 0,
-        overflow: "hidden",
-        position: "relative",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        zIndex: 0,
-      }}
-    >
-      <img
-        src={backgroundGif}
-        alt="Background"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          zIndex: -1,
-        }}
-      />
+    <div className="playpage-main">
+      <img id="playpage-background" src={backgroundGif} alt="Background" />
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-around",
-          width: "100%",
-          padding: "20px",
-          marginTop: "-60px",
-        }}
-      >
+      <div className="playpage-games-container">
         <div
-          className="carrousel-wrapper"
+          id="playpage-game"
           style={{
             background: "#efe4c5",
             borderRadius: "10px",
             boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
             padding: "20px",
             margin: "10px",
-            height: "300px",
+            height: "400px",
             width: "30%",
             display: "flex",
             flexDirection: "column",
@@ -65,14 +31,14 @@ export default function PlayPage() {
           <FunFactGenerator />
         </div>
         <div
-          className="carrousel-wrapper"
+          id="playpage-game"
           style={{
             background: "#efe4c5",
             borderRadius: "10px",
             boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
             padding: "20px",
             margin: "10px",
-            height: "300px",
+            height: "400px",
             width: "30%",
             display: "flex",
             flexDirection: "column",
@@ -85,7 +51,7 @@ export default function PlayPage() {
           <GuessTheQuoteGame />
         </div>
         <div
-          className="carrousel-wrapper"
+          id="playpage-game"
           style={{
             background: "#efe4c5",
             borderRadius: "10px",
@@ -93,7 +59,7 @@ export default function PlayPage() {
             padding: "20px",
             margin: "10px",
             width: "30%",
-            height: "300px",
+            height: "400px",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",

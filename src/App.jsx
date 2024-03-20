@@ -12,9 +12,27 @@ import AddReview from "./components/AddReview";
 import PlayPage from "./pages/PlayPage";
 import NewsList from "./components/NewsList";
 import { NewsDetails } from "./pages/NewsDetails";
-//import GuessTheQuoteGame from "./components/GuessTheQuoteGame";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [showScroll, setShowScroll] = useState(false);
+  const checkScrollTop = () => {
+    if (!showScroll && window.scrollY > 400) {
+      setShowScroll(true);
+    } else if (showScroll && window.scrollY <= 400) {
+      setShowScroll(false);
+    }
+  };
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", checkScrollTop);
+    return () => window.removeEventListener("scroll", checkScrollTop);
+  }, [showScroll]);
+
   return (
     <>
       <TopBar />
@@ -28,6 +46,13 @@ function App() {
         <Route path="/add-review/:movieId" element={<AddReview />} />
         <Route path="/play-page" element={<PlayPage />} />
       </Routes>
+      <div>
+        {showScroll && (
+          <button onClick={scrollTop} className="scrollUp-btn">
+            ↑
+          </button>
+        )}
+      </div>
       <Footer />
     </>
   );

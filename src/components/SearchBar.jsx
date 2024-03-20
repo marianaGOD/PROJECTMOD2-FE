@@ -20,8 +20,8 @@ export default function SearchBar({ movies, setIsSearchOn }) {
     console.log(moviesToSearch);
   }
   return (
-    <div>
-      SearchBar
+    <div className="searchbar-style">
+      
       <input
         type="text"
         placeholder="Search here"

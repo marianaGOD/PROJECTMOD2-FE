@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SearchBar from "../components/SearchBar";
-import HomePage from "../pages/HomePage";
+import HomePage from "./HomePage";
 import SortBy from "../components/SortBy";
 
 function MoviesList() {

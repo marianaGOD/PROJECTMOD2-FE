@@ -71,16 +71,17 @@ export default function GuessTheQuoteGame() {
   }
 
   return (
-    <div>
+    <div className="playpage-game-card">
       <h1>Guess The Movie Quote!</h1>
       {!quizStarted ? (
-        <button onClick={generateQuizQuestion}>Start Quiz</button>
+        <button className="playpage-buttons" onClick={generateQuizQuestion}>
+          Start Game
+        </button>
       ) : (
         <>
           {currentQuestion && (
             <div>
               <p>Quote: "{currentQuestion.quote}"</p>{" "}
-          
               {currentQuestion.options.map((option, index) => (
                 <button
                   key={index}
@@ -90,9 +91,16 @@ export default function GuessTheQuoteGame() {
                     backgroundColor:
                       selectedAnswer === option
                         ? option === currentQuestion.correctAnswer
-                          ? "green"
-                          : "red"
-                        : "lightgrey",
+                          ? "#A9FAA4" 
+                          : "#FAAEA4" 
+                        : option === currentQuestion.correctAnswer &&
+                          selectedAnswer
+                        ? "#A9FAA4" 
+                        : "black", 
+                    color: selectedAnswer ? "black" : "white", 
+                    margin: "10px", 
+                    padding: "10px", 
+                    borderRadius: "5px",
                   }}
                 >
                   {option}
@@ -106,7 +114,9 @@ export default function GuessTheQuoteGame() {
           <div>
             Score: {correctAnswerCount}/{totalQuestionsAnswered}{" "}
           </div>
-          <button onClick={restartQuiz}>Restart Quiz</button>
+          <button className="playpage-buttons" onClick={restartQuiz}>
+            Restart Game
+          </button>
         </>
       )}
     </div>

@@ -45,19 +45,33 @@ export default function OscarTrueOrFalse() {
     <div>
       <h1>True Oscar or False Oscar?</h1>
       {!gameStarted ? (
-        <button onClick={startGame}>Start Game</button>
+        <button className="playpage-buttons" onClick={startGame}>
+          Start Game
+        </button>
       ) : (
-        <button onClick={nextQuestion}>Next Movie</button>
+        <button className="playpage-buttons" onClick={nextQuestion}>
+          Next Movie
+        </button>
       )}
       {currentMovie && (
         <div>
           <p>Did "{currentMovie.title}" win an Oscar?</p>
-          <button onClick={() => handleGuess(true)}>True</button>
-          <button onClick={() => handleGuess(false)}>False</button>
+          <button
+            className="playpage-buttons"
+            onClick={() => handleGuess(true)}
+          >
+            True
+          </button>
+          <button
+            className="playpage-buttons"
+            onClick={() => handleGuess(false)}
+          >
+            False
+          </button>
         </div>
       )}
       {gameStarted && (
-        <div>
+        <div style={{paddingTop: "15px"}}>
           Score: {score} / {attempted}
         </div>
       )}

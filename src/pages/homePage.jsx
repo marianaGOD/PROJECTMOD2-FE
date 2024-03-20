@@ -33,7 +33,7 @@ export default function HomePage() {
         <button className="add-button" onClick={() => nav("add-new-movie")}>
           Add New Movie
         </button>
-        <div>
+        <div className="homepage-recentreviews-container">
           <RecentReviews />
         </div>
       </div>

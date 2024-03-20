@@ -31,13 +31,12 @@ function FunFactGenerator() {
   return (
     <div>
       <h1>Fun Fact Generator</h1>
-      <button onClick={generateFunFact}>Generate Fun Fact</button>
+      <button className="playpage-buttons" onClick={generateFunFact}>Generate Fun Fact</button>
       {currentFunFact && (
         <div>
-          <h3>Fun Fact</h3>
           <p>{currentFunFact.funFact}</p>
           <p>
-            <strong>Movie:</strong> {currentFunFact.title}
+            Movie:{currentFunFact.title}
           </p>
         </div>
       )}

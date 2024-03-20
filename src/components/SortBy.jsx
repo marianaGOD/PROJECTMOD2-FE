@@ -59,7 +59,7 @@ function SortBy({ movies, setMovies, setIsFilterOn }) {
     filterByGenre(newGenre);
   };
   return (
-    <div>
+    <div className="sort-btn">
       <button type="button" onClick={sortByTitleAsc}>
         Sort by Title ↑
       </button>
