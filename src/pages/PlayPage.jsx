@@ -1,6 +1,8 @@
 import React from "react";
 import backgroundGif from "../assets/bggif.gif";
 import GuessTheQuoteGame from "../components/GuessTheQuoteGame";
+import FunFactGenerator from "../components/FunFactGenerator";
+import OscarTrueOrFalse from "../components/OscarTrueOrFalse";
 
 export default function PlayPage() {
   return (
@@ -10,34 +12,98 @@ export default function PlayPage() {
         width: "100vw",
         margin: 0,
         overflow: "hidden",
-        position: "relative", // This sets the positioning context for absolutely positioned child elements.
-        display: "flex", // Use flexbox to center the child content
-        justifyContent: "center", // Center horizontally
-        alignItems: "center", // Center vertically
-        zIndex: 0, // Ensure this container is above the default layer
+        position: "relative",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        zIndex: 0,
       }}
     >
       <img
         src={backgroundGif}
         alt="Background"
         style={{
-          position: "absolute", // Absolute position to fill the parent
+          position: "absolute",
           top: 0,
           left: 0,
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          zIndex: -1, // Keep the image behind the content
+          zIndex: -1,
         }}
       />
-      {/* This div wraps the GuessTheQuoteGame component, ensuring it's on top of the background and centered */}
+
       <div
         style={{
-          zIndex: 2, // Ensure this content is above the background image
-          // Remove specific width or height if GuessTheQuoteGame has its own dimensions
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          width: "100%",
+          padding: "20px",
+          marginTop: "-60px",
         }}
       >
-        <GuessTheQuoteGame />
+        <div
+          className="carrousel-wrapper"
+          style={{
+            background: "#efe4c5",
+            borderRadius: "10px",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+            padding: "20px",
+            margin: "10px",
+            height: "300px",
+            width: "30%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 2,
+            color: "#0b1828",
+          }}
+        >
+          <FunFactGenerator />
+        </div>
+        <div
+          className="carrousel-wrapper"
+          style={{
+            background: "#efe4c5",
+            borderRadius: "10px",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+            padding: "20px",
+            margin: "10px",
+            height: "300px",
+            width: "30%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 2,
+            color: "#0b1828",
+          }}
+        >
+          <GuessTheQuoteGame />
+        </div>
+        <div
+          className="carrousel-wrapper"
+          style={{
+            background: "#efe4c5",
+            borderRadius: "10px",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+            padding: "20px",
+            margin: "10px",
+            width: "30%",
+            height: "300px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 2,
+            color: "#0b1828",
+          }}
+        >
+          <OscarTrueOrFalse />
+        </div>
       </div>
     </div>
   );

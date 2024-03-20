@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Carrousel from "../components/Carrousel";
 import axios from "axios";
 import Logo from "../assets/logo.png";
+import RecentReviews from "../components/RecentReviews";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -14,6 +15,7 @@ export default function HomePage() {
       setMovies(response.data);
     });
   }, []);
+  
   const nav = useNavigate();
   return (
     <>
@@ -29,6 +31,7 @@ export default function HomePage() {
         <button className="add-button" onClick={() => nav("add-new-movie")}>
           Add New Movie
         </button>
+        <div><RecentReviews/></div>
       </div>
     </>
   );

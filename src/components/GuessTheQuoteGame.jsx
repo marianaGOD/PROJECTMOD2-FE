@@ -3,79 +3,84 @@ import axios from "axios";
 
 export default function GuessTheQuoteGame() {
   const [movies, setMovies] = useState([]);
-  const [currentQuestion, setCurrentQuestion] = useState(null);
-  const [selectedAnswer, setSelectedAnswer] = useState("");
-  const [correctCount, setCorrectCount] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState();
+  const [selectedAnswer, setSelectedAnswer] = useState();
+  const [correctAnswerCount, setCorrectAnswerCount] = useState(0);
   const [totalQuestionsAnswered, setTotalQuestionsAnswered] = useState(0);
-  const [quizStarted, setQuizStarted] = useState(false);
+  const [quizStarted, setQuizStarted] = useState(false); 
 
   useEffect(() => {
     axios
       .get(`http://localhost:3000/movies`)
-      .then((response) => {
-        setMovies(response.data);
-      })
-      .catch((error) => {
-        console.log("These aren't the movies you're looking for", error);
-      });
+      .then((response) => setMovies(response.data))
+      .catch((error) => console.log("There's no movies for you!"));
   }, []);
 
-  const shuffleArray = (array) => {
+  function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+      [array[i], array[j]] = [array[j], array[i]]; 
     }
     return array;
-  };
+  }
 
-  const generateQuiz = () => {
-    setSelectedAnswer(""); // Reset selected answer for new question
-    if (!quizStarted) setQuizStarted(true); // Indicate that the quiz has started
-    if (movies.length > 2) {
-      const correctMovie = movies[Math.floor(Math.random() * movies.length)];
-      let options = [correctMovie.title];
-      while (options.length < 3) {
-        const randomMovie =
-          movies[Math.floor(Math.random() * movies.length)].title;
-        if (!options.includes(randomMovie)) {
-          options.push(randomMovie);
-        }
+  function generateQuizQuestion() {
+    setSelectedAnswer("");
+    setQuizStarted(true); 
+
+    let randomNumber = Math.floor(Math.random() * movies.length);
+    let correctAnswer = movies[randomNumber];
+
+    let options = [correctAnswer.title];
+    while (options.length < 3) {
+      let randomNumberForWrongOptions = Math.floor(
+        Math.random() * movies.length
+      );
+      let wrongOption = movies[randomNumberForWrongOptions].title;
+      if (
+        !options.includes(wrongOption) &&
+        wrongOption !== correctAnswer.title
+      ) {
+        options.push(wrongOption);
       }
-      options = shuffleArray(options);
-      setCurrentQuestion({
-        quote: correctMovie.famousQuote,
-        options: options,
-        correctAnswer: correctMovie.title,
-      });
     }
-  };
 
-  const handleAnswerClick = (answer) => {
+    shuffleArray(options);
+
+    setCurrentQuestion({
+      quote: correctAnswer.famousQuote,
+      options: options,
+      correctAnswer: correctAnswer.title,
+    });
+  }
+
+  function handleAnswerClick(answer) {
     setSelectedAnswer(answer);
-    setTotalQuestionsAnswered((prev) => prev + 1);
+    setTotalQuestionsAnswered((prevCount) => prevCount + 1);
     if (answer === currentQuestion.correctAnswer) {
-      setCorrectCount((prevCount) => prevCount + 1);
+      setCorrectAnswerCount((prevCount) => prevCount + 1);
     }
-  };
+  }
 
-  const restartQuiz = () => {
+  function restartQuiz() {
     setQuizStarted(false);
-    setCorrectCount(0);
+    setCorrectAnswerCount(0);
     setTotalQuestionsAnswered(0);
     setCurrentQuestion(null);
     setSelectedAnswer("");
-  };
+  }
 
   return (
     <div>
-      <h1>Guess The Quote Game</h1>
+      <h1>Guess The Movie Quote!</h1>
       {!quizStarted ? (
-        <button onClick={generateQuiz}>Start Quiz</button>
+        <button onClick={generateQuizQuestion}>Start Quiz</button>
       ) : (
         <>
           {currentQuestion && (
             <div>
-              <p>Quote: "{currentQuestion.quote}"</p>
+              <p>Quote: "{currentQuestion.quote}"</p>{" "}
+          
               {currentQuestion.options.map((option, index) => (
                 <button
                   key={index}
@@ -87,19 +92,19 @@ export default function GuessTheQuoteGame() {
                         ? option === currentQuestion.correctAnswer
                           ? "green"
                           : "red"
-                        : "initial",
+                        : "lightgrey",
                   }}
                 >
                   {option}
                 </button>
               ))}
               {selectedAnswer && (
-                <button onClick={generateQuiz}>Next Movie</button>
+                <button onClick={generateQuizQuestion}>Next Movie</button>
               )}
             </div>
           )}
           <div>
-            Correct Answers: {correctCount}/{totalQuestionsAnswered}
+            Score: {correctAnswerCount}/{totalQuestionsAnswered}{" "}
           </div>
           <button onClick={restartQuiz}>Restart Quiz</button>
         </>

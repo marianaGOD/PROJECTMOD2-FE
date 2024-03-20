@@ -10,7 +10,7 @@ import { Footer } from "./components/Footer";
 import AddNewMovie from "./components/AddNewMovie";
 import AddReview from "./components/AddReview";
 import PlayPage from "./pages/PlayPage";
-import GuessTheQuoteGame from "./components/GuessTheQuoteGame";
+//import GuessTheQuoteGame from "./components/GuessTheQuoteGame";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <Route path="/add-new-movie" element={<AddNewMovie />} />
         <Route path="/add-review/:movieId" element={<AddReview />} />
         <Route path="/play-page" element={<PlayPage />} />
-        <Route path="/play-guess-the-quote" element={<GuessTheQuoteGame />} />
+        
       </Routes>
       <Footer />
     </>
