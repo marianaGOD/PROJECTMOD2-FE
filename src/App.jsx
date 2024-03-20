@@ -10,6 +10,8 @@ import { Footer } from "./components/Footer";
 import AddNewMovie from "./components/AddNewMovie";
 import AddReview from "./components/AddReview";
 import PlayPage from "./pages/PlayPage";
+import NewsList from "./components/NewsList";
+import { NewsDetails } from "./pages/NewsDetails";
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies/:movieId" element={<MoviesDetails />} />
+        <Route path="/:newsId" element={<NewsDetails />} />
         <Route path="/movies" element={<MoviesList />} />
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/add-new-movie" element={<AddNewMovie />} />
