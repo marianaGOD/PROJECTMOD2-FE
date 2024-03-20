@@ -12,6 +12,7 @@ import AddReview from "./components/AddReview";
 import PlayPage from "./pages/PlayPage";
 import NewsList from "./components/NewsList";
 import { NewsDetails } from "./pages/NewsDetails";
+//import GuessTheQuoteGame from "./components/GuessTheQuoteGame";
 
 function App() {
   return (

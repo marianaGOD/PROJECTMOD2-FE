@@ -2,10 +2,13 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SearchBar from "../components/SearchBar";
-import HomePage from "../pages/HomePage"
+import HomePage from "../pages/HomePage";
+import SortBy from "../components/SortBy";
 
 function MoviesList() {
   const [movies, setMovies] = useState([]);
+  const [isSearchOn, setIsSearchOn] = useState(false);
+  const [isFilterOn, setIsFilterOn] = useState(false);
 
   useEffect(() => {
     axios
@@ -22,21 +25,31 @@ function MoviesList() {
     <div>
       <div className="container">
         <h1>Our best movies</h1>
-        <SearchBar movies={movies} />
-        <div>
-          {movies &&
-            movies.map((movie) => {
-              return (
-                <Link to={`${movie.id}`} key={movie.id}>
-                  <div className="list-group-each">
-                    <h2>{movie.title}</h2>
-                    <img src={movie.imageUrl} />
-                    <p>{movie.description}</p>
-                  </div>
-                </Link>
-              );
-            })}
-        </div>
+        <SortBy
+          movies={movies}
+          setMovies={setMovies}
+          setIsFilterOn={setIsFilterOn}
+        />
+        <SearchBar movies={movies} setIsSearchOn={setIsSearchOn} />
+
+        {isSearchOn || isFilterOn ? (
+          <div></div>
+        ) : (
+          <div>
+            {movies &&
+              movies.map((movie) => {
+                return (
+                  <Link to={`${movie.id}`} key={movie.id}>
+                    <div className="list-group-each">
+                      <h2>{movie.title}</h2>
+                      <img src={movie.imageUrl} />
+                      <p>{movie.description}</p>
+                    </div>
+                  </Link>
+                );
+              })}
+          </div>
+        )}
       </div>
     </div>
   );

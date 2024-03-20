@@ -2,9 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function SearchBar({movies}) {
+export default function SearchBar({ movies, setIsSearchOn }) {
   const [searchInput, setSearchInput] = useState("");
-  let moviesToSearch = movies
+  let moviesToSearch = movies;
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -12,11 +12,12 @@ export default function SearchBar({movies}) {
   };
 
   if (searchInput.length > 0) {
+    setIsSearchOn(true)
     moviesToSearch = moviesToSearch.filter((movie) => {
       return movie.title.toLowerCase().includes(searchInput.toLowerCase());
     });
-  
-    console.log(moviesToSearch)
+
+    console.log(moviesToSearch);
   }
   return (
     <div>
