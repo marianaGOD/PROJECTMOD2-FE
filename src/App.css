@@ -127,6 +127,7 @@ body {
 
 .carrousel-wrapper h1 {
   font-family: NowBlack;
+  font-size: 25px;
 }
 
 .swiper {
@@ -148,20 +149,20 @@ body {
 
 @keyframes shadows {
   0% {
-    box-shadow: #ffffff 0 0 40px;
+    box-shadow: #ffffff 0 0 30px;
   }
   50% {
-    box-shadow: blueviolet 0 0 40px;
+    box-shadow: blueviolet 0 0 30px;
   }
   75% {
-    box-shadow: #48abe0 0 0 40px;
+    box-shadow: #48abe0 0 0 30px;
   }
   100% {
-    box-shadow: #ffffff 0 0 40px;
+    box-shadow: #ffffff 0 0 30px;
   }
 }
 
-.add-button {
+/* .add-button {
   margin: 50px;
   height: 80px;
   width: 280px;
@@ -210,8 +211,17 @@ body {
 .add-button:active {
   box-shadow: #d6d6e7 0 3px 7px inset;
   transform: translateY(4px);
+} */
+
+.add-button {
+  margin-top: 15px;
+  width: 300px !important;
+  padding: 0 30px 0 30px;
 }
 
+.add-button:hover {
+  transform: translateY(2px);
+}
 /*HOMEPAGE NEWS LIST*/
 
 .news-container {
@@ -336,14 +346,21 @@ body {
 
 /*REVIEWS*/
 
+.review-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 40px 0;
+}
+
 .review-button {
-  margin: 50px;
   background-color: white;
   color: #0b1828;
   text-transform: uppercase;
   font-family: NowBlack;
   height: 60px;
-  width: 150px;
+  width: 185px;
   border-radius: 30px;
   font-size: 15px;
   text-align: center;
@@ -439,8 +456,10 @@ input[type="radio"] {
   background-color: rgb(239, 228, 197);
   border-radius: 20px;
   color: white;
-  animation: shadows 2s infinite;
-  padding: 30px 0 60px 0;
+  -webkit-box-shadow: 0px 4px 20px -5px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px 4px 20px -5px rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 20px -5px rgba(255, 255, 255, 1);
+  padding: 5px 0 25px 0;
   margin: 0 auto;
   color: #0b1828;
   margin-bottom: 20px;
@@ -452,7 +471,8 @@ input[type="radio"] {
 
 .recentreviews-flex {
   display: flex;
-  align-items: flex-start;
+  align-items: start;
+
   gap: 20px;
 }
 
@@ -460,12 +480,11 @@ input[type="radio"] {
   width: 20%;
   position: relative;
   flex-shrink: 0;
-  padding: 30px 30px 30px 50px;
+  padding: 0px 0px 5px 20px;
   align-content: center;
 }
 
 #recentreviews-title-container {
-  padding-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -584,15 +603,15 @@ input[type="radio"] {
   background-color: rgb(239, 228, 197);
   border-radius: 20px;
   color: white;
-  animation: shadows 2s infinite;
-  padding: 30px 0 60px 0;
+  -webkit-box-shadow: 0px 4px 20px -5px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px 4px 20px -5px rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 20px -5px rgba(255, 255, 255, 1);
+  padding: 8px 0 25px 0;
   margin: 0 auto;
   color: #0b1828;
   margin-bottom: 20px;
   margin-top: 0;
-  font-size: small;
-  max-width: 30%;
-  width: 50%;
+  max-width: 70%;
 }
 
 .moviedetails-reviews-container h4 {

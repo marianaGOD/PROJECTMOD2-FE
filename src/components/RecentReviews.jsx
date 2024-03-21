@@ -25,14 +25,13 @@ function RecentReviews() {
         setReviews(sortedReviews);
       })
       .catch((error) => console.error("Failed to fetch reviews:", error));
-      axios
-        .get(`${API_URL}/movies`)
-        .then((response) => {
-          setMovies(response.data);
-        })
-        .catch((error) => console.error("Failed to fetch movies:", error));
+    axios
+      .get(`${API_URL}/movies`)
+      .then((response) => {
+        setMovies(response.data);
+      })
+      .catch((error) => console.error("Failed to fetch movies:", error));
   }, []);
-
 
   const renderHearts = (rating) => {
     let hearts = "";
@@ -74,9 +73,8 @@ function RecentReviews() {
                     alt="movie poster"
                   />
                   <div id="recentreviews-title-container">
-                    <h3>
-                      {review.title} {renderHearts(review.rating)}
-                    </h3>
+                    <h3>{review.title}</h3>
+                    {renderHearts(review.rating)}
                     <p>{review.description}</p>
                     <p id="recentreviews-signature">
                       Reviewed by {review.username} on {review.createdDate}

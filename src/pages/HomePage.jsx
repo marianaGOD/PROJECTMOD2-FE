@@ -28,12 +28,15 @@ export default function HomePage() {
       <main className="carrousel-wrapper">
         <Carrousel movies={movies} />
         <h1>Browse among hundreds of titles and add your own reviews.</h1>
+        <button
+          className="review-button add-button"
+          onClick={() => nav("add-new-movie")}
+        >
+          Add New Movie
+        </button>
       </main>
 
       <div>
-        <button className="add-button" onClick={() => nav("add-new-movie")}>
-          Add New Movie
-        </button>
         <div className="homepage-recentreviews-container">
           <RecentReviews />
         </div>

@@ -56,23 +56,26 @@ export const MoviesDetails = () => {
             <p>{movie.mainCast}</p>
           </div>
         </div>
-        <button
-          className="review-button"
-          onClick={() => navigate(`/add-review/${movie.id}`)}
-        >
-          Add Review
-        </button>
-        <button
-          className="review-button"
-          onClick={() => navigate(`/edit-movie/${movie.id}`)}
-        >
-          Edit Description
-        </button>
+        <div className="review-buttons-container">
+          <button
+            className="review-button"
+            onClick={() => navigate(`/add-review/${movie.id}`)}
+          >
+            Add Review
+          </button>
+
+          <button
+            className="review-button"
+            onClick={() => navigate(`/edit-movie/${movie.id}`)}
+          >
+            Edit Description
+          </button>
+        </div>
       </div>
-      <div className="moviedetails-reviews-container">
-        {reviews.map((review) => (
-          <div key={review.id}>
-            <h4>{review.username} wrote:</h4>
+      {reviews.map((review) => (
+        <div key={review.id} className="moviedetails-reviews-container">
+          <div>
+            <h4 className="title-review">{review.username} wrote:</h4>
             <h2 id="review-title">{review.title}</h2>
             <p>{review.description}</p>
             <p>{review.createdDate}</p>
@@ -96,8 +99,8 @@ export const MoviesDetails = () => {
             </div>
             <button onClick={() => deleteReview(review.id)}>Delete</button>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </>
   );
 };
