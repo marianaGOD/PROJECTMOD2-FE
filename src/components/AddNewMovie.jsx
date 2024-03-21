@@ -62,7 +62,7 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   };
 
   return (
-    <div className="popup" onClick={handleClickOutside}>
+    <div className="popup add-movie-popup" onClick={handleClickOutside}>
       <div className="inside-popup">
         <div className="popup-header">
           <h2>ADD NEW MOVIE</h2>

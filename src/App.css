@@ -409,13 +409,13 @@ body {
   color: #9B56A8;
 }
 
-.label, input, select, textarea {
+.add-movie-popup .label,.add-movie-popup input,.add-movie-popup select,.add-movie-popup textarea {
   display: block;
    margin-bottom: 15px;
    color: #9B56A8;
 }
 
-input[type="text"], select, textarea {
+.add-movie-popup input[type="text"],.add-movie-popup select, .add-movie-popup textarea {
   width: calc(100% - 20px); 
   padding: 10px;
   border-radius: 5px;
@@ -443,16 +443,16 @@ input[type="text"], select, textarea {
   color: white; 
 }
 
-textarea {
-  background-color: #white; 
+.add-movie-popup textarea {
+  background-color: white; 
   color: #6A8AB8
 }
 
-select {
+.add-movie-popup select {
   color: #9B56A8;
   width: 100%;
 }
-select[name="year"] {
+.add-movie-popup select[name="year"] {
   width: 100%;
   -webkit-appearance: none; 
   appearance: none; 
@@ -463,21 +463,21 @@ select[name="year"] {
 }
 
 
-select::-webkit-scrollbar {
+.add-movie-popupselect::-webkit-scrollbar {
   width: 12px; 
 }
 
-select::-webkit-scrollbar-thumb {
+.add-movie-popup select::-webkit-scrollbar-thumb {
   background-color: white; 
   border-radius: 6px;
 }
 
-select::-webkit-scrollbar-track {
+.add-movie-popup select::-webkit-scrollbar-track {
   background-color: #f0f0f0; 
 }
 
 
-select {
+.add-movie-popup select {
   scrollbar-width: thin; 
   scrollbar-color: white #f0f0f0; 
 }
