@@ -13,6 +13,7 @@ import PlayPage from "./pages/PlayPage";
 import NewsList from "./components/NewsList";
 import { NewsDetails } from "./pages/NewsDetails";
 import { useEffect, useState } from "react";
+import UpdateCard from "./components/UpdateCard";
 
 function App() {
   const [showScroll, setShowScroll] = useState(false);
@@ -45,6 +46,7 @@ function App() {
         <Route path="/add-new-movie" element={<AddNewMovie />} />
         <Route path="/add-review/:movieId" element={<AddReview />} />
         <Route path="/play-page" element={<PlayPage />} />
+        <Route path="/edit-movie/:movieId" element={<UpdateCard />} />
       </Routes>
       <div>
         {showScroll && (
