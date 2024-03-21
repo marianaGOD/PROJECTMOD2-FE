@@ -7,17 +7,17 @@ export const MoviesDetails = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
   const navigate = useNavigate();
-
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/movies/${movieId}`)
+      .get(`${API_URL}/movies/${movieId}`)
       .then((response) => {
         setMovie(response.data);
       })
       .catch((err) => console.log(err));
 
     axios
-      .get(`http://localhost:3000/reviews?movieId=${movieId}`)
+      .get(`${API_URL}/reviews?movieId=${movieId}`)
       .then((response) => {
         setReviews(response.data);
       })

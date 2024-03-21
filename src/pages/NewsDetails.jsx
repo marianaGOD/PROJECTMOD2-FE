@@ -7,9 +7,10 @@ export const NewsDetails = () => {
   const { newsId } = useParams();
   const navigate = useNavigate();
 
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/news/${newsId}`)
+      .get(`${API_URL}/news/${newsId}`)
       .then((response) => {
         setNews(response.data);
       })

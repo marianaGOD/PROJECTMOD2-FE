@@ -11,8 +11,9 @@ import RecentReviews from "../components/RecentReviews";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   useEffect(() => {
-    axios.get("http://localhost:3000/movies").then((response) => {
+    axios.get(`${API_URL}/movies`).then((response) => {
       setMovies(response.data);
     });
   }, []);

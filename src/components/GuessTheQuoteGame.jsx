@@ -9,9 +9,10 @@ export default function GuessTheQuoteGame() {
   const [totalQuestionsAnswered, setTotalQuestionsAnswered] = useState(0);
   const [quizStarted, setQuizStarted] = useState(false); 
 
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/movies`)
+      .get(`${API_URL}/movies`)
       .then((response) => setMovies(response.data))
       .catch((error) => console.log("There's no movies for you!"));
   }, []);

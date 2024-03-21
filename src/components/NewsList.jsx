@@ -5,9 +5,10 @@ import axios from "axios";
 function NewsList() {
   const [news, setNews] = useState();
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/news`)
+      .get(`${API_URL}/news`)
       .then((response) => {
         setNews(response.data);
         console.log(response.data);

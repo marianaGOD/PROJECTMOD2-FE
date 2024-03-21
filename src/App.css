@@ -419,7 +419,7 @@ input[type="radio"] {
 /* ML))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))*/
 
 .recentreviews-container {
-  display:flex;
+display:flex;
  flex-direction: row;
  gap: 20px;
  flex-wrap: wrap;

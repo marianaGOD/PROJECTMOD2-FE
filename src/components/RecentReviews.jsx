@@ -5,9 +5,10 @@ function RecentReviews() {
   const [reviews, setReviews] = useState([]);
   const [movies, setMovies] = useState([]);
 
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   useEffect(() => {
     axios
-      .get("http://localhost:3000/reviews")
+      .get(`${API_URL}/movies`)
       .then((response) => {
         const reviewsArray = response.data || [];
         const sortedReviews = reviewsArray

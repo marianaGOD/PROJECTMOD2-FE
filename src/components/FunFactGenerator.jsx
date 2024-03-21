@@ -5,9 +5,10 @@ function FunFactGenerator() {
   const [movies, setMovies] = useState([]);
   const [currentFunFact, setCurrentFunFact] = useState(null);
 
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   useEffect(() => {
     axios
-      .get("http://localhost:3000/movies")
+      .get(`${API_URL}/movies`)
       .then((response) => {
         setMovies(response.data);
       })

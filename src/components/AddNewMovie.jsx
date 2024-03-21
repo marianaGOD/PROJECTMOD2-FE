@@ -49,9 +49,9 @@ export default function AddNewMovie({ movies, setMovies }) {
     };
 
     //setMovies([...movies, newMovie]);
-
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
     axios
-      .post("http://localhost:3000/movies", newMovie)
+      .post(`${API_URL}/movies`, newMovie)
       .then(function (response) {
         console.log(response);
         nav("/");
