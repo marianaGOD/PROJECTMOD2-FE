@@ -27,7 +27,7 @@ export default function AddReview({ movies, setMovies }) {
     };
     const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
     axios
-      .post(`${API_URL}//reviews`, review)
+      .post(`${API_URL}/reviews`, review)
       .then(function (response) {
         console.log(response);
         nav(`/movies/${movieId}`);
