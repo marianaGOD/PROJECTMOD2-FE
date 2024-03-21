@@ -12,7 +12,7 @@ export default function SearchBar({ movies, setIsSearchOn }) {
   };
 
   if (searchInput.length > 0) {
-    setIsSearchOn(true)
+    setIsSearchOn(true);
     moviesToSearch = moviesToSearch.filter((movie) => {
       return movie.title.toLowerCase().includes(searchInput.toLowerCase());
     });
@@ -21,22 +21,20 @@ export default function SearchBar({ movies, setIsSearchOn }) {
   }
   return (
     <div className="searchbar-style">
-      
       <input
         type="text"
         placeholder="Search here"
         onChange={handleChange}
         value={searchInput}
       />
-      <div>
+      <div className="movies-container">
         {movies &&
           moviesToSearch.map((movie) => {
             return (
               <Link key={movie.id} to={`${movie.id}`}>
                 <div className="list-group-each">
-                  <h2>{movie.title}</h2>
+                  <p>{movie.title}</p>
                   <img src={movie.imageUrl} />
-                  <p>{movie.description}</p>
                 </div>
               </Link>
             );

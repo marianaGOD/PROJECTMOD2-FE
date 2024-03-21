@@ -32,24 +32,6 @@ function MoviesList() {
           setIsFilterOn={setIsFilterOn}
         />
         <SearchBar movies={movies} setIsSearchOn={setIsSearchOn} />
-
-        {isSearchOn || isFilterOn ? (
-          <div></div>
-        ) : (
-          <div className="list-group-container">
-            {movies &&
-              movies.map((movie) => {
-                return (
-                  <Link to={`${movie.id}`} key={movie.id}>
-                    <div className="list-group-each">
-                      <h2>{movie.title}</h2>
-                      <img src={movie.imageUrl} />
-                    </div>
-                  </Link>
-                );
-              })}
-          </div>
-        )}
       </div>
     </div>
   );

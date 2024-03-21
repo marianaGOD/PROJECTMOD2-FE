@@ -7,7 +7,7 @@ import axios from "axios";
 export default function AddReview({ movies, setMovies }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-   const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [createdDate] = useState(new Date().toLocaleDateString());
   const { movieId } = useParams();
   const [rating, setRating] = useState(null);
@@ -27,7 +27,7 @@ export default function AddReview({ movies, setMovies }) {
     };
     const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
     axios
-      .post(`${API_URL}//reviews`, review)
+      .post(`${API_URL}/reviews`, review)
       .then(function (response) {
         console.log(response);
         nav(`/movies/${movieId}`);
