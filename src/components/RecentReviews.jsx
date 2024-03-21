@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function RecentReviews() {
   const [reviews, setReviews] = useState([]);
   const [movies, setMovies] = useState([]);
+  const nav=useNavigate()
 
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   useEffect(() => {
@@ -65,6 +67,7 @@ function RecentReviews() {
                 className="recentreviews-details"
                 key={review.id}
                 style={{ marginBottom: "20px" }}
+                onClick={() => nav(`/movies/${review.movieId}`)}
               >
                 <h1>{movieDetails.title}</h1>{" "}
                 <div className="recentreviews-flex">

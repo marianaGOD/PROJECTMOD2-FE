@@ -35,6 +35,7 @@ export default function HomePage() {
           Add New Movie
         </button>
         <div className="homepage-recentreviews-container">
+          
           <RecentReviews />
         </div>
       </div>
