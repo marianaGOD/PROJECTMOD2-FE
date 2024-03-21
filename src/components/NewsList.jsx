@@ -20,26 +20,38 @@ function NewsList() {
 
   return (
     <div>
+      <h1>Latest News</h1>
       <div className="news-container">
-        <h1>Latest News</h1>
+        {news &&
+          news.map((element) => {
+            return (
+              // <Link to={`${element.id}`} key={element.id}>
+              //   <div className="list-group-each-news">
+              //     <img src={element.photo} />
+              //     <h2>{element.title}</h2>
+              //   </div>
 
-        <div>
-          {news &&
-            news.map((element) => {
-              return (
-                //   <Link to={`${element.id}`} key={element.id}>
-                <div key={element.id} className="list-group-each-news">
-                  <h2>{element.title}</h2>
-                  <p>
-                    {element.date} {element.author}
-                  </p>
+              <div className="news-article">
+                <div className="list-group-each-news">
                   <img src={element.photo} />
-                  <p>{element.story}</p>
+                  <h2>
+                    <Link to={`${element.id}`} key={element.id}>
+                      {element.title.length > 55
+                        ? `${element.title.substring(0, 55)}...`
+                        : element.title}
+                    </Link>
+                  </h2>
+                  <div className="button-wrapper">
+                    <Link to={`${element.id}`} key={element.id}>
+                      Continue Reading
+                    </Link>
+                  </div>
                 </div>
-                //   </Link>
-              );
-            })}
-        </div>
+              </div>
+
+              // </Link>
+            );
+          })}
       </div>
     </div>
   );

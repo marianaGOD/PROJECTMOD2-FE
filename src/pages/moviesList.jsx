@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SearchBar from "../components/SearchBar";
-import HomePage from "../pages/HomePage";
+import HomePage from "./HomePage";
 import SortBy from "../components/SortBy";
 
 function MoviesList() {
@@ -35,7 +35,7 @@ function MoviesList() {
         {isSearchOn || isFilterOn ? (
           <div></div>
         ) : (
-          <div>
+          <div className="list-group-container">
             {movies &&
               movies.map((movie) => {
                 return (
@@ -43,7 +43,6 @@ function MoviesList() {
                     <div className="list-group-each">
                       <h2>{movie.title}</h2>
                       <img src={movie.imageUrl} />
-                      <p>{movie.description}</p>
                     </div>
                   </Link>
                 );
