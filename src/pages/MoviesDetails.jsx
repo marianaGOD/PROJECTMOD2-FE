@@ -7,7 +7,8 @@ export const MoviesDetails = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
   const navigate = useNavigate();
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
   useEffect(() => {
     axios
       .get(`${API_URL}/movies/${movieId}`)
@@ -23,6 +24,15 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
       })
       .catch((err) => console.log(err));
   }, [movieId]);
+
+  const deleteReview = (reviewId) => {
+    axios
+      .delete(`${API_URL}/reviews/${reviewId}`)
+      .then(() => {
+        setReviews(reviews.filter((review) => review.id !== reviewId));
+      })
+      .catch((err) => console.log(err));
+  };
 
   if (!movie) {
     return <p>Loading...</p>;
@@ -54,7 +64,6 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
         </button>
       </div>
       <div className="moviedetails-reviews-container">
-        
         {reviews.map((review) => (
           <div key={review.id}>
             <h4>{review.username} wrote:</h4>
@@ -79,6 +88,7 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
                 );
               })}
             </div>
+            <button onClick={() => deleteReview(review.id)}>Delete</button>
           </div>
         ))}
       </div>
@@ -87,18 +97,3 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 };
 
 export default MoviesDetails;
-
-/*  {
-      "id": "4",
-      "title": "Pulp Fiction",
-      "description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in tales of violence and redemption.",
-      "year": "1994",
-      "director": "Quentin Tarantino",
-      "mainCast": "John Travolta, Uma Thurman, Samuel L. Jackson",
-      "oscar": true,
-      "genre": "Crime, Drama",
-      "writers": "Quentin Tarantino, Roger Avary",
-      "funFact": "The briefcase's contents are never revealed, sparking widespread speculation and theories among fans.",
-      "famousQuote": "Say 'what' again, I dare you, I double dare you motherfucker, say what one more Goddamn time!",
-      "imageUrl": "https://static.posters.cz/image/750/posters/pulp-fiction-cover-i1288.jpg"
-    },*/
