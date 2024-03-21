@@ -4,7 +4,7 @@ import Logo from "../assets/logo.png";
 
 export default function TopBar() {
   return (
-    <div className="top-bar">
+    <header className="top-bar">
       <div>
         <Link to="/">
           <img src={Logo} className="topbar-logo"></img>
@@ -16,6 +16,6 @@ export default function TopBar() {
         <Link to="/add-new-movie"> Add New Movie</Link>
         <Link to="/play-page"> Play! </Link>
       </div>
-    </div>
+    </header>
   );
 }

@@ -23,7 +23,7 @@
 body {
   font-family: NowLight;
   background-image: url("./assets/background.png");
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-size: 100%;
   padding-top: 60px;
   padding-bottom: 10rem;
@@ -31,8 +31,6 @@ body {
   min-height: 100vh;
   margin: 0;
 }
-
-
 
 .card {
   padding: 2em;
@@ -42,9 +40,14 @@ body {
   color: #888;
 }
 
+/*TOP BAR*/
+
 .top-bar {
   display: flex;
-  background-color: rgba(11, 24, 40, 0.2);
+  background-image: url("./assets/background.png");
+  background-size: 100%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px,
+    rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
   justify-content: space-between;
   position: fixed;
   top: 0;
@@ -54,15 +57,12 @@ body {
   align-items: center;
   text-transform: uppercase;
   z-index: 999;
+  color: white;
 }
 
 .topbar-logo {
   height: 40px;
   padding: 10px;
-}
-
-.top-bar h1 {
-  color: white;
 }
 
 .bar-links {
@@ -83,8 +83,10 @@ body {
 }
 
 .bar-links > *:hover {
-  background-color: rgb(78, 70, 76);
+  text-shadow: #ffffff 0 0 5px;
 }
+
+/*FOOTER*/
 
 .footer-cont {
   background-image: url("./assets/footer.png");
@@ -99,6 +101,8 @@ body {
   width: 100%;
   height: 10rem;
 }
+
+/*HOMEPAGE*/
 
 .home-title-container h1 {
   size: 80px;
@@ -125,6 +129,23 @@ body {
   font-family: NowBlack;
 }
 
+.swiper {
+  width: 100%;
+  padding: 20px 0 0 0 !important;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 10px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+}
+
 @keyframes shadows {
   0% {
     box-shadow: #ffffff 0 0 40px;
@@ -142,35 +163,134 @@ body {
 
 .add-button {
   margin: 50px;
-  background-color: white;
-  color: #0b1828;
-  text-transform: uppercase;
-  font-family: NowBlack;
-  height: 100px;
+  height: 80px;
   width: 280px;
-  border-radius: 30px;
-  font-size: 25px;
-  text-align: center;
+  align-items: center;
+  appearance: none;
+  background-color: #fcfcfd;
+  border-radius: 50px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -6px 0 inset;
+  box-sizing: border-box;
   cursor: pointer;
-  outline: none;
-  box-shadow: 0 9px #0b1828;
+  display: inline-flex;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  text-transform: lowercase;
+  font-family: Blackriver;
+  font-size: 30px;
+  color: #0b1828;
+}
+
+.add-button:focus {
+  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -6px 0 inset;
 }
 
 .add-button:hover {
-  background-color: #2e2237;
-  color: white;
-  box-shadow: 0 9px white;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -6px 0 inset;
+  transform: translateY(2px);
 }
 
 .add-button:active {
-  background-color: #2e2237;
-  box-shadow: 0 5px white;
+  box-shadow: #d6d6e7 0 3px 7px inset;
   transform: translateY(4px);
+}
+
+/*HOMEPAGE NEWS LIST*/
+
+.news-container {
+  padding: 0;
+  margin: 0 0 60px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 12px;
+  gap: 2rem;
+}
+
+.list-group-each-news {
+  width: 300px;
+  max-height: 85%;
+  background: #46365376;
+  border-radius: 30px;
+  padding: 30px;
+  color: white;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px,
+    rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+}
+
+.news-container a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 10px 0;
+}
+.news-container a:hover {
+  text-shadow: #bca1c4 0 0 2px;
+}
+
+.list-group-each-news img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.button-wrapper {
+  border-radius: 30px;
+  background: #6b567c76;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px,
+    rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.button-wrapper:hover {
+  transform: translateY(2px);
+}
+
+.button-wrapper:active {
+  transform: translateY(4px);
+}
+/*MOVIE LIST PAGE*/
+
+.list-group-container {
+  display: flex;
+}
+
+.list-group-each {
+  width: 300px;
+  max-height: 85%;
+  color: white;
+  height: 100%;
 }
 
 .list-group-each img {
   height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px,
+    rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
 }
+
+/*MOVIE DETAILS PAGE*/
 
 .detail-container {
   display: flex;
@@ -188,6 +308,24 @@ body {
   height: 600px;
 }
 
+/*NEWS DETAILS PAGE*/
+
+.news-detail-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: space-around;
+  padding: 60px;
+  font-size: 22px;
+}
+
+.news-detail-container img {
+  height: auto;
+  width: 1000px;
+}
+
+/*REVIEWS*/
+
 .review-button {
   margin: 50px;
   background-color: white;
@@ -204,23 +342,27 @@ body {
   box-shadow: 0 9px #0b1828;
 }
 
+/*FORMS*/
+
 .popup {
-  position: fixed;
+  /* position: fixed;
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.411);
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.411); */
+  margin: 5% 0;
 }
 .inside-popup {
   display: block;
-  overflow: hidden;
+  /* overflow: hidden; */
   width: 50%;
-  height: 75%;
+  /* height: 75%; */
   background-color: #312631;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 8%;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* margin-top: 8%; */
+  margin: 0 auto;
   padding: 30px 30px;
   border-radius: 10px;
 }
@@ -272,23 +414,6 @@ input[type="radio"] {
   cursor: pointer;
   font-size: 2rem;
   margin: 5px;
-}
-
-.swiper {
-  width: 100%;
-  padding: 20px 0 0 0 !important;
-}
-
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  padding-bottom: 10px;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 400px;
-  margin: 0 auto;
 }
 
 
