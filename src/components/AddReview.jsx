@@ -7,7 +7,7 @@ import axios from "axios";
 export default function AddReview({ movies, setMovies }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-   const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [createdDate] = useState(new Date().toLocaleDateString());
   const { movieId } = useParams();
   const [rating, setRating] = useState(null);

@@ -5,7 +5,7 @@ import axios from "axios";
 function NewsList() {
   const [news, setNews] = useState();
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   useEffect(() => {
     axios
       .get(`${API_URL}/news`)
@@ -32,20 +32,18 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
               //     <h2>{element.title}</h2>
               //   </div>
 
-              <div className="news-article">
+              <div className="news-article" key={element.id}>
                 <div className="list-group-each-news">
                   <img src={element.photo} />
                   <h2>
-                    <Link to={`${element.id}`} key={element.id}>
+                    <Link to={`${element.id}`}>
                       {element.title.length > 55
                         ? `${element.title.substring(0, 55)}...`
                         : element.title}
                     </Link>
                   </h2>
                   <div className="button-wrapper">
-                    <Link to={`${element.id}`} key={element.id}>
-                      Continue Reading
-                    </Link>
+                    <Link to={`${element.id}`}>Continue Reading</Link>
                   </div>
                 </div>
               </div>

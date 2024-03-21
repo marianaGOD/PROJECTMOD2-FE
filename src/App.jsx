@@ -39,7 +39,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies/:movieId" element={<MoviesDetails />} />
-        <Route path="/:newsId" element={<NewsDetails />} />
+        <Route path="/news/:newsId" element={<NewsDetails />} />
         <Route path="/movies" element={<MoviesList />} />
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/add-new-movie" element={<AddNewMovie />} />
