@@ -8,7 +8,6 @@ export default function AddReview({ movies, setMovies }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [username, setUsername] = useState("");
-  const [createdDate] = useState(new Date().toLocaleDateString());
   const { movieId } = useParams();
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
@@ -22,7 +21,7 @@ export default function AddReview({ movies, setMovies }) {
       title,
       description,
       rating,
-      createdDate: createdDate,
+      createdDate: (new Date().toLocaleDateString()),
       movieId,
     };
     const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";

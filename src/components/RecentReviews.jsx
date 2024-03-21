@@ -1,30 +1,24 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function RecentReviews() {
   const [reviews, setReviews] = useState([]);
   const [movies, setMovies] = useState([]);
+  const nav = useNavigate();
 
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
   useEffect(() => {
     axios
       .get(`${API_URL}/reviews`)
       .then((response) => {
-        const reviewsArray = response.data || [];
-        const sortedReviews = reviewsArray
-          .sort((a, b) => {
-            const dateA = new Date(
-              a.createdDate.split("/").reverse().join("-")
-            );
-            const dateB = new Date(
-              b.createdDate.split("/").reverse().join("-")
-            );
-            return dateB - dateA;
-          })
-          .slice(0, 9);
-        setReviews(sortedReviews);
+        let reviewsArray = response.data || [];
+        reviewsArray = shuffleArray(reviewsArray).slice(0, 9);
+        setReviews(reviewsArray);
       })
       .catch((error) => console.error("Failed to fetch reviews:", error));
+
     axios
       .get(`${API_URL}/movies`)
       .then((response) => {
@@ -32,6 +26,14 @@ function RecentReviews() {
       })
       .catch((error) => console.error("Failed to fetch movies:", error));
   }, []);
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
 
   const renderHearts = (rating) => {
     let hearts = "";
@@ -43,7 +45,7 @@ function RecentReviews() {
 
   function findMovieDetails(movies, reviewId) {
     for (let i = 0; i < movies.length; i++) {
-      if (movies[i].id == reviewId) {
+      if (movies[i].id === reviewId) {
         return {
           title: movies[i].title,
           imageUrl: movies[i].imageUrl,
@@ -54,7 +56,7 @@ function RecentReviews() {
 
   return (
     <>
-      <h2>Recent Reviews</h2>
+      <h2>Our Users Reviews</h2>
       {movies.length > 0 && reviews.length > 0 ? (
         <div className="recentreviews-container">
           {reviews.map((review) => {
@@ -64,8 +66,9 @@ function RecentReviews() {
                 className="recentreviews-details"
                 key={review.id}
                 style={{ marginBottom: "20px" }}
+                onClick={() => nav(`/movies/${review.movieId}`)}
               >
-                <h1>{movieDetails.title}</h1>{" "}
+                <h1>{movieDetails.title}</h1>
                 <div className="recentreviews-flex">
                   <img
                     className="recentreviews-img"

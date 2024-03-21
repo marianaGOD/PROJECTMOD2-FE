@@ -40,7 +40,7 @@ export default function UpdateCard() {
   return (
     <form onSubmit={handleEditMovie}>
       <div className="popup-form-container">
-        <div className="inline-container">
+        <div className="update-description">
           <label>
             Description
             <br />
