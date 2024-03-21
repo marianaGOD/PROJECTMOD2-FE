@@ -408,6 +408,13 @@ body {
   gap: 10px;
   color: #9B56A8;
 }
+.update-description{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  color: #9B56A8;
+}
 
 .add-movie-popup .label,.add-movie-popup input,.add-movie-popup select,.add-movie-popup textarea {
   display: block;
