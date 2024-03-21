@@ -3,8 +3,6 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// import required modules
 import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
 

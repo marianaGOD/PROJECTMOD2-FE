@@ -53,14 +53,13 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
           Add Review
         </button>
       </div>
-      <div>
-        <h3>Reviews</h3>
+      <div className="moviedetails-reviews-container">
+        
         {reviews.map((review) => (
           <div key={review.id}>
-            <h4>{review.username}</h4>
-            <p>{review.title}</p>
+            <h4>{review.username} wrote:</h4>
+            <h2 id="review-title">{review.title}</h2>
             <p>{review.description}</p>
-            <p>Rating: {review.rating}</p>
             <p>{review.createdDate}</p>
             <div id="star-rating">
               {[...Array(5)].map((_, index) => {
@@ -71,7 +70,7 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
                       className="star"
                       style={{
                         color:
-                          ratingValue <= review.rating ? "#9B56A8" : "#e4e5e9",
+                          ratingValue <= review.rating ? "#9B56A8" : "#D0BFD3 ",
                       }}
                     >
                       &hearts;
