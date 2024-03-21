@@ -8,7 +8,7 @@ function RecentReviews() {
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   useEffect(() => {
     axios
-      .get(`${API_URL}/movies`)
+      .get(`${API_URL}/reviews`)
       .then((response) => {
         const reviewsArray = response.data || [];
         const sortedReviews = reviewsArray
@@ -25,16 +25,14 @@ function RecentReviews() {
         setReviews(sortedReviews);
       })
       .catch((error) => console.error("Failed to fetch reviews:", error));
+      axios
+        .get(`${API_URL}/movies`)
+        .then((response) => {
+          setMovies(response.data);
+        })
+        .catch((error) => console.error("Failed to fetch movies:", error));
   }, []);
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/movies")
-      .then((response) => {
-        setMovies(response.data);
-      })
-      .catch((error) => console.error("Failed to fetch movies:", error));
-  }, []);
 
   const renderHearts = (rating) => {
     let hearts = "";
