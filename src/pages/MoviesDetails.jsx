@@ -62,6 +62,12 @@ export const MoviesDetails = () => {
         >
           Add Review
         </button>
+        <button
+          className="review-button"
+          onClick={() => navigate(`/edit-movie/${movie.id}`)}
+        >
+          Edit Description
+        </button>
       </div>
       <div className="moviedetails-reviews-container">
         {reviews.map((review) => (
