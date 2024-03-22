@@ -102,6 +102,15 @@ body {
   height: 10rem;
 }
 
+.footer-cont a {
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  width: fit-content;
+  margin: 0 auto;
+}
+
 /*HOMEPAGE*/
 
 .home-title-container h1 {
@@ -372,19 +381,25 @@ body {
 /*FORMS*/
 
 .popup {
-  position: fixed; 
+  /* position: fixed; */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   width: 100%;
-  max-width: 600px; 
-  background-color: white;
+  max-width: 600px;
+  background-color: #fff;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000; 
-  background: linear-gradient(145deg, #9B56A8, #6A8AB8); 
-  color:white ; 
+  box-shadow: 0 4px 8px #0000001a;
+  z-index: 1000;
+  background: linear-gradient(145deg, #9b56a8, #6a8ab8);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  margin-top: 40px;
 }
 
 .inside-popup {
@@ -403,7 +418,7 @@ body {
 }
 
 .delete-btn {
-  background-color: #9B56A8;
+  background-color: #9b56a8;
   color: white;
   border: none;
   border-radius: 4px;
@@ -415,7 +430,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  color: #9B56A8;
+  color: #9b56a8;
 }
 
 .inline-container {
@@ -423,87 +438,91 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px;
-  color: #9B56A8;
+  color: #9b56a8;
 }
-.update-description{
+.update-description {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  color: #9B56A8;
+  color: #9b56a8;
 }
 
-.add-movie-popup .label,.add-movie-popup input,.add-movie-popup select,.add-movie-popup textarea {
+.add-movie-popup .label,
+.add-movie-popup input,
+.add-movie-popup select,
+.add-movie-popup textarea {
   display: block;
-   margin-bottom: 15px;
-   color: #9B56A8;
+  margin-bottom: 15px;
+  color: #9b56a8;
 }
 
-.add-movie-popup input[type="text"],.add-movie-popup select, .add-movie-popup textarea {
-  width: calc(100% - 20px); 
+.add-movie-popup input[type="text"],
+.add-movie-popup select,
+.add-movie-popup textarea {
+  width: calc(100% - 20px);
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc; 
-  background-color: #f8f8f8; 
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
 }
 
 #popup-submit-btn {
-  background-color: #6A8AB8; 
+  background-color: #6a8ab8;
   color: white;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
-  align-self: center; 
+  align-self: center;
   transition: background-color 0.3s ease;
 }
 
 #popup-submit-btn:hover {
-  background-color: #9B56A8; 
+  background-color: #9b56a8;
 }
 
-.popup-title-input, label {
-  color: white; 
+.popup-title-input,
+label {
+  color: white;
 }
 
 .add-movie-popup textarea {
-  background-color: white; 
-  color: #6A8AB8
+  background-color: white;
+  color: #6a8ab8;
 }
 
 .add-movie-popup select {
-  color: #9B56A8;
+  color: #9b56a8;
   width: 100%;
 }
 .add-movie-popup select[name="year"] {
   width: 100%;
-  -webkit-appearance: none; 
-  appearance: none; 
-  background-color: #f8f8f8; 
-  border: 1px solid #ccc; 
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
   padding: 10px;
   border-radius: 5px;
 }
 
-
 .add-movie-popupselect::-webkit-scrollbar {
-  width: 12px; 
+  width: 12px;
 }
 
 .add-movie-popup select::-webkit-scrollbar-thumb {
-  background-color: white; 
+  background-color: white;
   border-radius: 6px;
 }
 
 .add-movie-popup select::-webkit-scrollbar-track {
-  background-color: #f0f0f0; 
+  background-color: #f0f0f0;
 }
 
-
 .add-movie-popup select {
-  scrollbar-width: thin; 
-  scrollbar-color: white #f0f0f0; 
+  scrollbar-width: thin;
+  scrollbar-color: white #f0f0f0;
 }
 
 #star-rating {
