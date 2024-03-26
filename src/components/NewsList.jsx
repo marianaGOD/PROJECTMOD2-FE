@@ -4,42 +4,43 @@ import axios from "axios";
 
 function NewsList() {
   const [news, setNews] = useState([]);
+  const [page, setPage] = useState(0);
+  const [outOfNews, setOutOfNews] = useState(false);
 
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
+  const loadMore = () => {
+    return setPage((prevPage) => prevPage + 1);
+  };
+
   useEffect(() => {
-    axios
-      .get(`${API_URL}/news`)
-      .then((response) => {
-        const shuffledNews = shuffle(response.data); // Shuffle news items
-        const selectedNews = shuffledNews.slice(0, 6); // Select first 6 items
-        setNews(selectedNews);
-      })
-      .catch((error) => {
-        console.log("Broken news", error);
-      });
-  }, []);
-
-  // Function to shuffle array
-  const shuffle = (array) => {
-    let currentIndex = array.length,
-      temporaryValue,
-      randomIndex;
-
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
+    if (page === 0) {
+      setPage(1);
+      return;
     }
 
-    return array;
-  };
+    const getNews = async (limit = null, page = null, news = []) => {
+      try {
+        const params = { _limit: limit, _page: page };
+        const request = await axios.get(`${API_URL}/news`, { params });
+        const response = await request.data;
+
+        console.log("response", response);
+        if (response.length === 0) {
+          console.log("now we would be out of news");
+          setOutOfNews(true);
+          let button = document.getElementById("load-more");
+          button.style.display = "none";
+          return;
+        }
+        setNews((prevNews) => [...prevNews, ...response]);
+        return response;
+      } catch (error) {
+        console.error("had an error fetching news from database", error);
+      }
+    };
+    getNews(6, page, news);
+  }, [page]);
 
   return (
     <div>
@@ -62,7 +63,17 @@ function NewsList() {
             </div>
           </div>
         ))}
+        {outOfNews ? (
+          <div className="news-article">
+            <div className="list-group-each-news">
+              <h2>No more news available.</h2>
+            </div>
+          </div>
+        ) : null}
       </div>
+      <button id="load-more" onClick={loadMore}>
+        Load More
+      </button>
     </div>
   );
 }
